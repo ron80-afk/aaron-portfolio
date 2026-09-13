@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes navDrop {
+	from { opacity: 0; transform: translateY(-100%); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navItemIn {
+	from { opacity: 0; transform: translateX(12px); }
+	to { opacity: 1; transform: translateX(0); }
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+@keyframes sectionFocus {
+	0%, 100% { outline: 0 solid transparent; }
+	35% { outline: 4px solid rgba(8, 217, 214, 0.55); outline-offset: -4px; }
+}
+
+.section-focus {
+	animation: sectionFocus 900ms ease-out;
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition: opacity 700ms ease-out, transform 700ms ease-out;
+	transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.section-focus {
+		animation: none;
+	}
+
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
