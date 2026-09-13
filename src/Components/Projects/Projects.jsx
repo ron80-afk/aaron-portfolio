@@ -1,7 +1,7 @@
 import React from 'react'
 import Reveal from '../Reveal/Reveal'
 
-const professionalProjects = [
+const professionalProjects = [ // Add your professional projects here
   {
     description: 'Developed an internal product database portal from scratch for engineers to manage product and supplier catalogs. Also added a feature enabling engineers to review and respond directly to custom product requests from sales agents, with responses integrated directly into sales quotations.',
   },
