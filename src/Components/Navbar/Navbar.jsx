@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 flex w-full animate-[navDrop_600ms_ease-out] flex-wrap justify-between bg-[#0E0F26]/90 px-6 pb-4 pt-6 text-white backdrop-blur-sm md:items-center md:px-16 md:pb-0">
       <a href="#top" onClick={(event) => handleNavigation(event, 'top')} className="font-black uppercase tracking-wide text-xl transition-transform duration-300 hover:scale-105 [-webkit-text-stroke:1px_#FF2E63] [font-family:'Anton',sans-serif]">
-        myPortfolio<span className="text-[#08D9D6]">.</span>
+        Aaron's<span className="text-[#08D9D6]">Portfolio</span>
       </a>
 
       <ul
