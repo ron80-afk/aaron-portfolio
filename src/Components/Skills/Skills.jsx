@@ -10,7 +10,7 @@ const skillGroups = [
   {
     title: 'Game Development',
     tag: 'GAME',
-    skills: ['Unity', 'C#', 'Blender', 'Maya', 'Mixamo', 'Photopea']
+    skills: ['Unity', 'C#', 'Blender', 'Maya', 'Mixamo', 'Photopea', 'Finevoice AI'],
   },
 ]
 
