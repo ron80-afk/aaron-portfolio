@@ -1,41 +1,18 @@
 import React from 'react'
-import { RiInformationLine } from '@remixicon/react'
 import Reveal from '../Reveal/Reveal'
 
 const professionalProjects = [
   {
-    title: 'Espiron Product Database',
-    description: 'Product Database for Technical Engineers',
-    link: 'https://espiron-product-database-demo.vercel.app/',
+    description: 'Developed an internal product database portal from scratch for engineers to manage product and supplier catalogs. Also added a feature enabling engineers to review and respond directly to custom product requests from sales agents, with responses integrated directly into sales quotations.',
   },
   {
-    title: 'Taskflow',
-    description: 'Sales Activity Planner',
-    link: 'https://taskflow-demo-v2-two.vercel.app/',
+    description: 'Help developed the ticket endorsement and workflow management feature within a customer service platform, letting CSR and Sales coordinate on inquiries, with automated response/handling time computations and customer database search and filtering.',
   },
   {
-    title: 'EngiConnect (Procurement Portal only)',
-    description: 'Logistics and Approval of the projects',
-    link: 'https://engineer-ticketing-v2-demo.vercel.app/',
-  },
-  {
-    title: 'Ecodesk',
-    description: 'CSR platform',
-    link: 'https://ecodesk-demo-pink.vercel.app',
+    description: 'Help developed the custom product request feature within the Sales Activity Planner, letting sales agents request custom products directly on the internal product database portal for engineers.',
   },
 ]
 
-const testUsers = [
-  ['csr@test.com', 'Test CSR'],
-  ['sales_agent@test.com', 'Sales Agent'],
-  ['sales_head@test.com', 'Sales Head'],
-  ['sales_manager@test.com', 'Sales Manager'],
-  ['it@test.com', 'IT'],
-  ['procurement@test.com', 'Procurement'],
-  ['engineer@test.com', 'Technical Engineer'],
-]
-
-// School & Internship Projects — Game Development
 const schoolProjects = [
   {
     title: 'Chairman Days',
@@ -73,74 +50,14 @@ const Projects = () => {
           <h3 className="mb-6 text-2xl font-black uppercase tracking-wide text-[#FF2E63]">
             Professional Work
           </h3>
-          
-          {/* ✅ DISCLAIMER */}
-          <p className="mb-8 text-sm text-[#C6C8F0] italic border-l-2 border-[#FF2E63] pl-4">
-            * All projects displayed here are shared with full consent and permission from the developers of Disruptive Solutions Inc.
-            I respect and uphold the{' '}
-            <a
-              href="https://privacy.gov.ph/data-privacy-act/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold not-italic underline decoration-[#08D9D6] underline-offset-2 hover:text-[#08D9D6]"
-            >
-              Data Privacy Act of 2012
-            </a>{' '}
-            — all portals shown are for demonstration purposes only and contain no proprietary source code.
-          </p>
-
           <div className="grid gap-6 md:grid-cols-2">
                 {professionalProjects.map((project, index) => (
                 <div
-                    key={project.title}
-                    className="group relative z-0 hover:z-30 focus-within:z-30 border-2 border-white/80 bg-[#12142B] p-5 md:p-7 shadow-[6px_6px_0_#08D9D6] transition-all duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#FF2E63]"
+                    key={project.description}
+                    className={`group relative z-0 border-2 border-white/80 bg-[#12142B] p-5 md:p-7 shadow-[6px_6px_0_#08D9D6] transition-all duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#FF2E63] ${index === 2 ? 'md:col-span-2 md:mx-auto md:w-1/2' : ''}`}
                     style={{ transform: `rotate(${index % 2 === 0 ? '-0.5' : '0.5'}deg)` }}
                 >
-                <div className="group/info absolute right-4 top-4">
-                  <span
-                    aria-label={`Show ${project.title} test link and users`}
-                    className="flex h-7 w-7 items-center justify-center rounded-full border border-[#08D9D6] text-[#08D9D6] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
-                  >
-                    <RiInformationLine size={17} />
-                  </span>
-                  <div className="pointer-events-none absolute left-0 top-10 z-50 w-[min(20rem,calc(100vw-3rem))] -translate-y-2 opacity-0 transition-all duration-300 group-hover/info:pointer-events-auto group-hover/info:translate-y-0 group-hover/info:opacity-100 group-focus-within/info:pointer-events-auto group-focus-within/info:translate-y-0 group-focus-within/info:opacity-100 md:left-auto md:right-0">
-                  <div className="max-h-[min(32rem,70vh)] overflow-y-auto border-2 border-[#08D9D6] bg-[#0E0F26] p-4 text-xs text-white shadow-[4px_4px_0_#FF2E63]">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="break-all font-bold text-[#08D9D6] hover:underline"
-                    >
-                      {project.link}
-                    </a>
-                    <p className="mt-3 font-bold uppercase tracking-wide text-[#FF2E63]">Test Users</p>
-                    <div className="mt-2 space-y-2.5 text-[#C6C8F0]">
-                    {testUsers.map(([email, userName]) => (
-                        <div key={email} className="border-l-2 border-[#08D9D6]/40 pl-2">
-                        <p className="break-all font-semibold text-white">{email}</p>
-                        <p className="text-[11px] text-[#C6C8F0]">
-                            {userName} <span className="text-[#08D9D6]">·</span> password: <span className="font-mono">test</span>
-                        </p>
-                        </div>
-                    ))}
-                    </div>
-                  </div>
-                </div>
-                </div>
-                <h4 className="pr-10 text-xl font-black uppercase tracking-wide group-hover:text-[#08D9D6] transition-colors">
-                  {project.title}
-                </h4>
-                <p className="mt-3 text-sm text-[#C6C8F0]">{project.description}</p>
-                <div className="mt-4 flex gap-4 text-sm font-bold">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#08D9D6] hover:underline"
-                  >
-                    View Link →
-                  </a>
-                </div>
+                <p className="text-sm text-[#C6C8F0]">{project.description}</p>
               </div>
             ))}
           </div>
