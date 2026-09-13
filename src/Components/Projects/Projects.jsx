@@ -68,15 +68,7 @@ const Projects = () => {
           </h2>
         </Reveal>
 
-        {/* ===== BREADCRUMBS / NAVIGATION ===== */}
-        <Reveal className="mb-10 flex flex-wrap gap-4 text-sm font-bold" delay={100}>
-          <a href="#professional" className="rounded-full bg-[#FF2E63]/20 px-4 py-2 text-[#FF2E63] hover:bg-[#FF2E63] hover:text-white transition-colors">
-            Professional Work
-          </a>
-          <a href="#school" className="rounded-full bg-[#08D9D6]/20 px-4 py-2 text-[#08D9D6] hover:bg-[#08D9D6] hover:text-white transition-colors">
-            School & Internships
-          </a>
-        </Reveal>
+
 
         {/* ===== PROFESSIONAL PROJECTS ===== */}
         <Reveal id="professional" className="mb-20" delay={150}>
