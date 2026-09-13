@@ -51,10 +51,11 @@ const Experience = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.index)
-            setVisible((prev) => (prev.includes(index) ? prev : [...prev, index]))
-          }
+          const index = Number(entry.target.dataset.index)
+          setVisible((prev) => entry.isIntersecting
+            ? (prev.includes(index) ? prev : [...prev, index])
+            : prev.filter((item) => item !== index)
+          )
         })
       },
       { threshold: 0.3 }

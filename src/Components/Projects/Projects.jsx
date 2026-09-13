@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { RiInformationLine } from '@remixicon/react'
 import Reveal from '../Reveal/Reveal'
 
@@ -21,7 +21,7 @@ const professionalProjects = [
   {
     title: 'Ecodesk',
     description: 'CSR platform',
-    link: 'http://ecodesk-demo.vercel.app/',
+    link: 'https://ecodesk-demo-pink.vercel.app',
   },
 ]
 
@@ -50,6 +50,8 @@ const schoolProjects = [
 ]
 
 const Projects = () => {
+  const [openProject, setOpenProject] = useState(null)
+
   return (
     <section id="Projects" className="relative overflow-hidden bg-[#0E0F26] px-6 py-16 text-white md:px-16 md:py-24">
       {/* Background Pattern */}
@@ -95,15 +97,19 @@ const Projects = () => {
                     className="group relative z-0 hover:z-30 focus-within:z-30 border-2 border-white/80 bg-[#12142B] p-5 md:p-7 shadow-[6px_6px_0_#08D9D6] transition-all duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#FF2E63]"
                     style={{ transform: `rotate(${index % 2 === 0 ? '-0.5' : '0.5'}deg)` }}
                 >
-                <div className="group/info absolute right-4 top-4">
+                <div className="absolute right-4 top-4">
                   <button
                     type="button"
                     aria-label={`Show ${project.title} test link and users`}
+                    aria-expanded={openProject === project.title}
+                    onClick={() => setOpenProject(openProject === project.title ? null : project.title)}
                     className="flex h-7 w-7 items-center justify-center rounded-full border border-[#08D9D6] text-[#08D9D6] opacity-0 transition-opacity hover:bg-[#08D9D6] hover:text-[#12142B] group-hover:opacity-100 focus:opacity-100"
                   >
                     <RiInformationLine size={17} />
                   </button>
-                  <div className="pointer-events-none absolute right-0 top-9 z-10 w-[min(20rem,calc(100vw-2rem))] border-2 border-[#08D9D6] bg-[#0E0F26] p-4 text-xs text-white opacity-0 shadow-[4px_4px_0_#FF2E63] transition-opacity group-hover/info:pointer-events-auto group-hover/info:opacity-100 group-focus-within/info:pointer-events-auto group-focus-within/info:opacity-100">
+                </div>
+                <div className={`overflow-hidden transition-[max-height,margin] duration-300 ${openProject === project.title ? 'mt-4 max-h-[40rem]' : 'mt-0 max-h-0'}`}>
+                  <div className="border-2 border-[#08D9D6] bg-[#0E0F26] p-4 text-xs text-white shadow-[4px_4px_0_#FF2E63]">
                     <a
                       href={project.link}
                       target="_blank"
@@ -125,7 +131,7 @@ const Projects = () => {
                     </div>
                   </div>
                 </div>
-                <h4 className="text-xl font-black uppercase tracking-wide group-hover:text-[#08D9D6] transition-colors">
+                <h4 className="pr-10 text-xl font-black uppercase tracking-wide group-hover:text-[#08D9D6] transition-colors">
                   {project.title}
                 </h4>
                 <p className="mt-3 text-sm text-[#C6C8F0]">{project.description}</p>
