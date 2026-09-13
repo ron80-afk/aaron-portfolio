@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { RiInformationLine } from '@remixicon/react'
 import Reveal from '../Reveal/Reveal'
 
@@ -50,8 +50,6 @@ const schoolProjects = [
 ]
 
 const Projects = () => {
-  const [openProject, setOpenProject] = useState(null)
-
   return (
     <section id="Projects" className="relative overflow-hidden bg-[#0E0F26] px-6 py-16 text-white md:px-16 md:py-24">
       {/* Background Pattern */}
@@ -71,7 +69,7 @@ const Projects = () => {
 
 
         {/* ===== PROFESSIONAL PROJECTS ===== */}
-        <Reveal id="professional" className="mb-20" delay={150}>
+        <Reveal id="professional" className="relative z-20 mb-20" delay={150}>
           <h3 className="mb-6 text-2xl font-black uppercase tracking-wide text-[#FF2E63]">
             Professional Work
           </h3>
@@ -79,7 +77,16 @@ const Projects = () => {
           {/* ✅ DISCLAIMER */}
           <p className="mb-8 text-sm text-[#C6C8F0] italic border-l-2 border-[#FF2E63] pl-4">
             * All projects displayed here are shared with full consent and permission from the developers of Disruptive Solutions Inc.
-            I respect and uphold the <strong>Data Privacy Act of 2012</strong> — all portals shown are for demonstration purposes only and contain no proprietary source code.
+            I respect and uphold the{' '}
+            <a
+              href="https://privacy.gov.ph/data-privacy-act/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold not-italic underline decoration-[#08D9D6] underline-offset-2 hover:text-[#08D9D6]"
+            >
+              Data Privacy Act of 2012
+            </a>{' '}
+            — all portals shown are for demonstration purposes only and contain no proprietary source code.
           </p>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -89,19 +96,15 @@ const Projects = () => {
                     className="group relative z-0 hover:z-30 focus-within:z-30 border-2 border-white/80 bg-[#12142B] p-5 md:p-7 shadow-[6px_6px_0_#08D9D6] transition-all duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#FF2E63]"
                     style={{ transform: `rotate(${index % 2 === 0 ? '-0.5' : '0.5'}deg)` }}
                 >
-                <div className="absolute right-4 top-4">
-                  <button
-                    type="button"
+                <div className="group/info absolute right-4 top-4">
+                  <span
                     aria-label={`Show ${project.title} test link and users`}
-                    aria-expanded={openProject === project.title}
-                    onClick={() => setOpenProject(openProject === project.title ? null : project.title)}
-                    className="flex h-7 w-7 items-center justify-center rounded-full border border-[#08D9D6] text-[#08D9D6] opacity-0 transition-opacity hover:bg-[#08D9D6] hover:text-[#12142B] group-hover:opacity-100 focus:opacity-100"
+                    className="flex h-7 w-7 items-center justify-center rounded-full border border-[#08D9D6] text-[#08D9D6] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
                   >
                     <RiInformationLine size={17} />
-                  </button>
-                </div>
-                <div className={`overflow-hidden transition-[max-height,margin] duration-300 ${openProject === project.title ? 'mt-4 max-h-[40rem]' : 'mt-0 max-h-0'}`}>
-                  <div className="border-2 border-[#08D9D6] bg-[#0E0F26] p-4 text-xs text-white shadow-[4px_4px_0_#FF2E63]">
+                  </span>
+                  <div className="pointer-events-none absolute left-0 top-10 z-50 w-[min(20rem,calc(100vw-3rem))] -translate-y-2 opacity-0 transition-all duration-300 group-hover/info:pointer-events-auto group-hover/info:translate-y-0 group-hover/info:opacity-100 group-focus-within/info:pointer-events-auto group-focus-within/info:translate-y-0 group-focus-within/info:opacity-100 md:left-auto md:right-0">
+                  <div className="max-h-[min(32rem,70vh)] overflow-y-auto border-2 border-[#08D9D6] bg-[#0E0F26] p-4 text-xs text-white shadow-[4px_4px_0_#FF2E63]">
                     <a
                       href={project.link}
                       target="_blank"
@@ -123,6 +126,7 @@ const Projects = () => {
                     </div>
                   </div>
                 </div>
+                </div>
                 <h4 className="pr-10 text-xl font-black uppercase tracking-wide group-hover:text-[#08D9D6] transition-colors">
                   {project.title}
                 </h4>
@@ -143,7 +147,7 @@ const Projects = () => {
         </Reveal>
 
         {/* ===== SCHOOL & INTERNSHIPS ===== */}
-        <Reveal id="school" delay={250}>
+        <Reveal id="school" className="relative z-10" delay={250}>
           <h3 className="mb-6 text-2xl font-black uppercase tracking-wide text-[#08D9D6]">
             School & Internships
           </h3>
